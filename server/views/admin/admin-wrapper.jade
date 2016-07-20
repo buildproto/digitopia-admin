@@ -44,7 +44,7 @@ html(lang="en")
                   li
                     a(href='/admin/views/I18n/index')= 'i18n'
           .hidden-logged-in
-            form.navbar-form.navbar-right(data-jsclass="adminLoginController" data-endpoint= '/api/' + userModel + '/login')
+            form.navbar-form.navbar-right(data-jsclass="adminLoginController" data-endpoint= '/auth/local')
               .form-group
                 input.form-control(name="email" type='text', placeholder='Email')
               .form-group
