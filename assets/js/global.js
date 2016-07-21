@@ -32,6 +32,7 @@ function loadPage(href) {
 }
 
 function getAccessToken() {
+	console.log("looking for access token");
 	return $.cookie('access_token');
 }
 
