@@ -22,8 +22,6 @@ var adminGetUploadForProperty = function adminGetUploadForProperty(prop, uploads
 module.exports = function (server, userAuth, userModelName, tableNames, options) {
 	var router = server.loopback.Router();
 
-	server.locals.moment = moment;
-
 	var path = require('path');
 	var p = path.join(__dirname, '../../client/dist');
 	server.use('/admin/dist/', loopback.static(p));
@@ -150,6 +148,8 @@ module.exports = function (server, userAuth, userModelName, tableNames, options)
 	});
 
 	function doTemplate(mode, req, res, next) {
+		server.locals.moment = moment;
+
 		var model = req.params[0];
 		var id = req.params[1] ? req.params[1] : -1;
 
