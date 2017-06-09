@@ -88,6 +88,8 @@ module.exports = function (server, userAuth, userModelName, tableNames, options)
 	// list instances in model
 	router.get(/^\/admin\/views\/([^\/]*)\/index$/, userAuth, function (req, res, next) {
 		var model = req.params[0];
+		console.log("req params", req.params);
+		console.log("model", model);
 		var schema = getModelInfo(model);
 		var format = req.query.format;
 
@@ -162,6 +164,7 @@ module.exports = function (server, userAuth, userModelName, tableNames, options)
 		var modelPlural = model + 's';
 
 		var endpoint = req.protocol + '://' + req.get('host') + '/api/' + modelPlural;
+		console.log("req.protocol", req.protocol, req);
 		if (id !== -1) {
 			endpoint += '/' + id;
 		}
