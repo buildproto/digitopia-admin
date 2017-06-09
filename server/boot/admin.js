@@ -163,8 +163,7 @@ module.exports = function (server, userAuth, userModelName, tableNames, options)
 
 		var modelPlural = model + 's';
 
-		var endpoint = req.protocol + '://' + req.get('host') + '/api/' + modelPlural;
-		console.log("req.protocol", req.protocol, req);
+		var endpoint = '/api/' + modelPlural;
 		if (id !== -1) {
 			endpoint += '/' + id;
 		}
