@@ -188,7 +188,8 @@ module.exports = function (server, userAuth, userModelName, tableNames, options)
 		async.series([
 			function resolve(cb) {
 				server.models[model].findById(id, {
-					include: includes
+					include: includes,
+          nocache: 1
 				}, function (err, instance) {
 					theInstance = instance;
 					cb(err, instance);
@@ -276,7 +277,9 @@ module.exports = function (server, userAuth, userModelName, tableNames, options)
 						}
 
 						if (relation.modelThrough) {
-							item.url = '/admin/views/' + relation.modelThrough + '/' + child.id + '/view'
+						  //console.log("modelThrough", relation.modelThrough, "relation", relation)
+							//item.url = '/admin/views/' + relation.modelThrough + '/' + child.id + '/view'
+              item.url = '/admin/views/' + relatedModel + '/' + child.id + '/view' 
 						}
 
 						children[relation.name].children.push(item);
